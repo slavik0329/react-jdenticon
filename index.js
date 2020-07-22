@@ -19,12 +19,20 @@ var Jdenticon = function Jdenticon(_ref) {
   var _ref$value = _ref.value,
       value = _ref$value === void 0 ? 'test' : _ref$value,
       _ref$size = _ref.size,
-      size = _ref$size === void 0 ? '100%' : _ref$size;
+      size = _ref$size === void 0 ? '100%' : _ref$size,
+      config = _ref.config,
+      style = _ref.style;
   var icon = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
+    if (config) {
+      _jdenticon["default"].config = config;
+    }
+
     _jdenticon["default"].update(icon.current, value);
   }, [value]);
-  return _react["default"].createElement("div", null, _react["default"].createElement("svg", {
+  return _react["default"].createElement("div", {
+    style: style
+  }, _react["default"].createElement("svg", {
     "data-jdenticon-value": value,
     height: size,
     ref: icon,
